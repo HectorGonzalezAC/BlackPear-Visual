@@ -1,0 +1,416 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears Consulting</title>
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fuente Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratuito) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+    <!-- Contenedor de partículas (fondo) -->
+    <div id="particles-js"></div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <!-- Header fijo -->
+        <header class="header" id="header">
+            <div class="container header-container">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>BlackPears</span>
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                        <li><a href="login.html" class="nav-link">Acceder</a></li>
+                        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section con video -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-grid">
+                        <div class="hero-content animate-fade-in">
+                            <span class="hero-subtitle">Consultoría + Formación SAP</span>
+                            <h1 class="hero-title">Impulsa tu operación con <span class="purple-gradient">expertos
+                                    SAP</span></h1>
+                            <p class="hero-description">Implementamos, optimizamos y formamos a tu equipo en los módulos
+                                clave de SAP para acelerar resultados y minimizar riesgos operativos.</p>
+                            <div class="hero-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">120+</span>
+                                    <span class="stat-label">Proyectos SAP</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">Años experiencia</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Soporte</span>
+                                </div>
+                            </div>
+                            <a href="#contacto" class="btn-primary">Hablar con un experto</a>
+                        </div>
+                        <div class="hero-video animate-fade-in-delay">
+                            <div class="video-container">
+                                <!-- Video de ejemplo (sustituir por el del cliente) -->
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=1_4Jz6lL0Q0X0k7L"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quienes Somos -->
+            <section class="about">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-text animate-fade-in">
+                            <h2 class="section-title">Quienes <span class="purple-gradient">Somos</span></h2>
+                            <p class="about-text">Somos BlackPears, una firma de asesoría especializada en SAP. Nuestra
+                                misión es ser tu socio estratégico y ayudarte a navegar la complejidad tecnológica con
+                                resultados medibles.</p>
+                            <p class="about-text">Diseñamos implementaciones, optimizamos procesos y formamos equipos
+                                internos para que tu operación sea ágil, trazable y segura. Trabajamos con metodologías
+                                probadas y un equipo certificado que acompaña de punta a punta cada proyecto.</p>
+                        </div>
+                        <div class="stats-grid animate-fade-in-delay">
+                            <div class="stat-card">
+                                <span class="stat-card-number">120+</span>
+                                <span class="stat-card-label">Proyectos SAP</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-card-number">10+</span>
+                                <span class="stat-card-label">Años de experiencia</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-card-number">24/7</span>
+                                <span class="stat-card-label">Soporte operativo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Especialidades SAP -->
+            <section id="servicios" class="specialties">
+                <div class="container">
+                    <h2 class="section-title text-center">Nuestras <span class="purple-gradient">especialidades
+                            SAP</span></h2>
+                    <p class="section-subtitle text-center">Diseñamos, ejecutamos y entrenamos</p>
+
+                    <div class="specialties-grid">
+                        <!-- Tarjeta 1 -->
+                        <div class="specialty-card animate-fade-in">
+                            <div class="card-icon">
+                                <i class="fas fa-rocket" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>INTRO SAP + Formación</h3>
+                            <p>Onboarding acelerado, talleres prácticos y rutas de certificación para equipos que
+                                necesitan productividad inmediata.</p>
+                            <ul class="card-features">
+                                <li>Laboratorios guiados y casos reales</li>
+                                <li>KPIs de adopción y seguimiento semanal</li>
+                            </ul>
+                        </div>
+                        <!-- Tarjeta 2 -->
+                        <div class="specialty-card animate-fade-in-delay">
+                            <div class="card-icon">
+                                <i class="fas fa-code" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>ABAP & Extensiones</h3>
+                            <p>Automatizamos procesos, creamos integraciones y extensiones a medida siguiendo buenas
+                                prácticas y seguridad.</p>
+                            <ul class="card-features">
+                                <li>Integraciones con sistemas legados y cloud</li>
+                                <li>Optimización de performance y trazabilidad</li>
+                            </ul>
+                        </div>
+                        <!-- Tarjeta 3 -->
+                        <div class="specialty-card animate-fade-in-delay-2">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>SAP HANA / BI / BW</h3>
+                            <p>Modelos de datos, reporting ejecutivo y tableros que conectan finanzas, logística y
+                                operación en tiempo real.</p>
+                            <ul class="card-features">
+                                <li>Dashboards para dirección y operación</li>
+                                <li>Monitoreo de calidad y gobierno de datos</li>
+                            </ul>
+                        </div>
+                        <!-- Tarjeta 4 -->
+                        <div class="specialty-card animate-fade-in-delay-3">
+                            <div class="card-icon">
+                                <i class="fas fa-coins" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>SAP FI / CO</h3>
+                            <p>Control financiero y de costos con cierres más rápidos, conciliaciones automatizadas y
+                                trazabilidad contable.</p>
+                            <ul class="card-features">
+                                <li>Automatización de cierres y reportes</li>
+                                <li>KPIs financieros en tiempo real</li>
+                            </ul>
+                        </div>
+                        <!-- Tarjeta 5 -->
+                        <div class="specialty-card animate-fade-in-delay">
+                            <div class="card-icon">
+                                <i class="fas fa-headset" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>Soporte y AMS</h3>
+                            <p>Mesa de ayuda, monitoreo preventivo y mejoras continuas con SLA claros y reportes
+                                ejecutivos.</p>
+                            <ul class="card-features">
+                                <li>SLA medidos y dashboard de tickets</li>
+                                <li>Plan de hardening y seguridad</li>
+                            </ul>
+                        </div>
+                        <!-- Tarjeta 6 -->
+                        <div class="specialty-card animate-fade-in-delay-2">
+                            <div class="card-icon">
+                                <i class="fas fa-map-signs" style="font-size: 2rem; color: var(--accent-purple);"></i>
+                            </div>
+                            <h3>Roadmaps a medida</h3>
+                            <p>Evaluaciones rápidas, blueprint y planes de adopción para modernizar tu stack SAP sin
+                                frenar la operación.</p>
+                            <ul class="card-features">
+                                <li>Assessment inicial en 10 días</li>
+                                <li>Plan de adopción con quick wins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Contacto -->
+            <section id="contacto" class="contact">
+                <div class="container">
+                    <div class="contact-grid">
+                        <div class="contact-info animate-fade-in">
+                            <h2 class="section-title">Inicia tu <span class="purple-gradient">transformación</span></h2>
+                            <p class="contact-description">Hablemos de tu operación SAP. Cuéntanos tu reto y en menos de
+                                24h te proponemos un plan de acción con quick wins y un roadmap claro.</p>
+                            <div class="contact-features">
+                                <div class="feature">
+                                    <span class="feature-icon">✓</span>
+                                    <span>Respuesta en 24h con agenda priorizada</span>
+                                </div>
+                                <div class="feature">
+                                    <span class="feature-icon">✓</span>
+                                    <span>SLA claros y acompañamiento continuo</span>
+                                </div>
+                                <div class="feature">
+                                    <span class="feature-icon">✓</span>
+                                    <span>Operamos 24/7 para incidencias críticas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form animate-fade-in-delay">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <label for="name" class="sr-only">Nombre completo</label>
+                                    <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="sr-only">Correo electrónico</label>
+                                    <input type="email" id="email" name="email" placeholder="Correo electrónico"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="sr-only">Teléfono / WhatsApp</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Teléfono / WhatsApp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message" class="sr-only">Cuéntanos tu reto...</label>
+                                    <textarea id="message" name="message" rows="4"
+                                        placeholder="Cuéntanos tu reto..."></textarea>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <label for="privacy">Acepto la política de privacidad</label>
+                                </div>
+                                <button type="submit" class="btn-primary btn-block">Enviar mensaje <i
+                                        class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <i class="fas fa-cube"></i>
+                        <span>BlackPears</span>
+                        <p>Consultoría SAP de alto nivel, comprometidos con la excelencia y la innovación.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Enlaces rápidos</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="login.html">Acceso clientes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h4>Contacto</h4>
+                        <p><i class="fas fa-envelope"></i> info@blackpearsve.com</p>
+                        <p><i class="fas fa-phone"></i> +58 212 123 4567</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 BlackPears Consulting. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Script para el header con scroll -->
+    <script>
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Inicialización de particles.js
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#b583df"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#b583df",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+
+</html>

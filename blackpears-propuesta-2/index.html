@@ -1,0 +1,274 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears · Consultoría SAP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <canvas id="particlesCanvas"></canvas>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>BlackPears</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="#contacto" class="btn btn-primary">Hablar con un experto</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>Impulsa tu operación <span class="highlight">con expertos SAP</span></h1>
+                    <p>Implementamos, optimizamos y formamos a tu equipo en los módulos clave de SAP para acelerar
+                        resultados y minimizar riesgos operativos.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">120+</span>
+                            <span class="stat-label">Proyectos SAP</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Años de experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Soporte operativo</span>
+                        </div>
+                    </div>
+                    <a href="#nosotros" class="btn btn-outline btn-large">Conocer más</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="about">
+            <div class="container">
+                <h2 class="section-title">Quienes Somos</h2>
+                <div class="about-content">
+                    <p class="about-text">Somos BlackPears, una firma de asesoría especializada en SAP. Nuestra misión
+                        es ser tu socio estratégico y ayudarte a navegar la complejidad tecnológica con resultados
+                        medibles.</p>
+                    <p class="about-text">Diseñamos implementaciones, optimizamos procesos y formamos equipos internos
+                        para que tu operación sea ágil, trazable y segura.</p>
+                    <p class="about-text">Trabajamos con metodologías probadas y un equipo certificado que acompaña de
+                        punta a punta cada proyecto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="especialidades" class="specialties">
+            <div class="container">
+                <h2 class="section-title">Nuestras especialidades SAP</h2>
+                <p class="section-subtitle">Diseñamos, ejecutamos y entrenamos</p>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>INTRO SAP + Formación</h3>
+                        <p>Onboarding acelerado, talleres prácticos y rutas de certificación para equipos que necesitan
+                            productividad inmediata.</p>
+                        <ul class="card-features">
+                            <li>Laboratorios guiados y casos reales</li>
+                            <li>KPIs de adopción y seguimiento semanal</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-code"></i></div>
+                        <h3>ABAP & Extensiones</h3>
+                        <p>Automatizamos procesos, creamos integraciones y extensiones a medida siguiendo buenas
+                            prácticas y seguridad.</p>
+                        <ul class="card-features">
+                            <li>Integraciones con sistemas legados y cloud</li>
+                            <li>Optimización de performance y trazabilidad</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>SAP HANA / BI / BW</h3>
+                        <p>Modelos de datos, reporting ejecutivo y tableros que conectan finanzas, logística y operación
+                            en tiempo real.</p>
+                        <ul class="card-features">
+                            <li>Dashboards para dirección y operación</li>
+                            <li>Monitoreo de calidad y gobierno de datos</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-coins"></i></div>
+                        <h3>SAP FI / CO</h3>
+                        <p>Control financiero y de costos con cierres más rápidos, conciliaciones automatizadas y
+                            trazabilidad contable.</p>
+                        <ul class="card-features">
+                            <li>Automatización de cierres y reportes</li>
+                            <li>KPIs financieros en tiempo real</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-headset"></i></div>
+                        <h3>Soporte y AMS</h3>
+                        <p>Mesa de ayuda, monitoreo preventivo y mejoras continuas con SLA claros y reportes ejecutivos.
+                        </p>
+                        <ul class="card-features">
+                            <li>SLA medidos y dashboard de tickets</li>
+                            <li>Plan de hardening y seguridad</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-road"></i></div>
+                        <h3>Roadmaps a medida</h3>
+                        <p>Evaluaciones rápidas, blueprint y planes de adopción para modernizar tu stack SAP sin frenar
+                            la operación.</p>
+                        <ul class="card-features">
+                            <li>Assessment inicial en 10 días</li>
+                            <li>Plan de adopción con quick wins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="cta">
+            <div class="container">
+                <h2>Inicia tu transformación</h2>
+                <p>Hablemos de tu operación SAP. Cuéntanos tu reto y en menos de 24h te proponemos un plan de acción con
+                    quick wins y un roadmap claro.</p>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Respuesta en 24h con agenda priorizada</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-file-signature"></i>
+                        <span>SLA claros y acompañamiento continuo</span>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-headset"></i>
+                        <span>Operamos 24/7 para incidencias críticas</span>
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary btn-large">Solicitar contacto</a>
+                <p class="whatsapp-note">¿Tienes WhatsApp activo en este número? +58 123 4567890</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-cube"></i>
+                    <span>BlackPears Consulting</span>
+                    <p>Expertos en SAP, socios estratégicos.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@blackpearsve.com</p>
+                    <p><i class="fas fa-phone"></i> +58 123 4567890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BlackPears Consulting. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('particlesCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0, mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1; // un poco más grandes
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                // Morado con opacidad alta (0.4 a 0.8)
+                this.color = `rgba(142, 68, 173, ${Math.random() * 0.4 + 0.4})`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -0.5;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -0.5;
+                const dx = this.x - mouseX;
+                const dy = this.y - mouseY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 100) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (100 - distance) / 1000;
+                    this.x += Math.cos(angle) * force * 10;
+                    this.y += Math.sin(angle) * force * 10;
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 120; i++) { // más partículas
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+
+</html>

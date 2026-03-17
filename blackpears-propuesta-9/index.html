@@ -1,0 +1,314 @@
+<!--index.html-->
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears Consulting · Plataforma SAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Canvas para partículas dinámicas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="content">
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">BLACKPEARS</a>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#plataforma">Plataforma</a></li>
+                    <li><a href="#soluciones">Soluciones</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="login.html" class="btn-outline">Acceso Clientes</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <!-- HERO SECTION -->
+            <section id="inicio" class="hero">
+                <h1 class="hero-title">Tome el control de su <span class="purple">operación SAP</span></h1>
+                <p class="hero-subtitle">BlackPears combina experiencia certificada, metodologías probadas y
+                    acompañamiento continuo en una plataforma de servicios abierta para optimizar su negocio antes de
+                    que surjan los problemas.</p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn-primary">Hablar con un experto</a>
+                    <a href="#" class="btn-secondary">Ver casos de éxito</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">120+</span>
+                        <span class="stat-label">Proyectos SAP</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte operativo</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VENTAJAS (3 PILARES) -->
+            <section class="advantage-section">
+                <div class="section-header">
+                    <h2>La ventaja <span class="purple">BlackPears</span> en SAP</h2>
+                </div>
+                <div class="advantage-grid">
+                    <div class="advantage-card">
+                        <h3>Prevención</h3>
+                        <p>Nuestro enfoque proactivo minimiza riesgos operativos y optimiza procesos antes de que
+                            afecten su negocio.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>Confianza</h3>
+                        <p>+120 proyectos entregados con equipos senior certificados que acompañan de punta a punta.</p>
+                    </div>
+                    <div class="advantage-card">
+                        <h3>Plataforma</h3>
+                        <p>Metodologías probadas que se adaptan a su stack tecnológico, con integraciones y roadmap
+                            claro.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE VIDEO DE PRESENTACIÓN -->
+            <section id="video" class="video-presentation-section">
+                <div class="section-header">
+                    <h2>Nuestra metodología <span class="purple">en acción</span></h2>
+                    <p class="section-subtitle">Conozca cómo transformamos la operación SAP de nuestras empresas
+                        aliadas.</p>
+                </div>
+                <div class="video-container">
+                    <div class="video-wrapper glass-card">
+                        <video controls
+                            poster="https://via.placeholder.com/1280x720/9f8cff/12121c?text=BlackPears+Presentación">
+                            <source src="video.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+                    </div>
+                    <p class="video-caption">Video corporativo · BlackPears Consulting</p>
+                </div>
+            </section>
+
+            <!-- PLATAFORMA -->
+            <section id="plataforma" class="platform-section">
+                <div class="platform-grid">
+                    <div class="platform-content">
+                        <h2>Plataforma de servicios <span class="purple">SAP</span> adaptativa</h2>
+                        <p class="platform-description">BlackPears ofrece una plataforma de consultoría que combina
+                            formación, implementación y soporte continuo. Nuestros servicios se actualizan con las
+                            últimas prácticas del mercado para darle control total sobre su operación.</p>
+                        <div class="platform-features">
+                            <div class="platform-feature">
+                                <span class="feature-icon"><i class="fas fa-bolt"></i></span>
+                                <span>Defensas dinámicas: optimización continua</span>
+                            </div>
+                            <div class="platform-feature">
+                                <span class="feature-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span>IA probada: métricas y KPIs en tiempo real</span>
+                            </div>
+                            <div class="platform-feature">
+                                <span class="feature-icon"><i class="fas fa-link"></i></span>
+                                <span>Ecosistema abierto: integración con legados</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="platform-video">
+                        <div class="video-wrapper">
+                            <video controls
+                                poster="https://via.placeholder.com/600x400/9f8cff/12121c?text=BlackPears+Platform">
+                                <source src="video2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SOLUCIONES (6 especialidades) -->
+            <section id="soluciones" class="solutions-section">
+                <div class="section-header">
+                    <h2>Soluciones a sus retos <span class="purple">SAP</span></h2>
+                    <p class="section-subtitle">Diseñamos, ejecutamos y entrenamos. Cada módulo entrega valor tangible.
+                    </p>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>INTRO SAP + Formación</h3>
+                        <p>Onboarding acelerado, talleres prácticos y rutas de certificación.</p>
+                        <ul>
+                            <li>Laboratorios guiados</li>
+                            <li>KPIs de adopción</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-code"></i></div>
+                        <h3>ABAP & Extensiones</h3>
+                        <p>Automatización, integraciones y extensiones a medida.</p>
+                        <ul>
+                            <li>Integración cloud/legados</li>
+                            <li>Optimización performance</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>SAP HANA / BI / BW</h3>
+                        <p>Modelos de datos, reporting ejecutivo y dashboards.</p>
+                        <ul>
+                            <li>Dashboards en tiempo real</li>
+                            <li>Gobierno de datos</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-coins"></i></div>
+                        <h3>SAP FI / CO</h3>
+                        <p>Control financiero, cierres rápidos y trazabilidad contable.</p>
+                        <ul>
+                            <li>Automatización de cierres</li>
+                            <li>KPIs financieros</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-headset"></i></div>
+                        <h3>Soporte y AMS</h3>
+                        <p>Mesa de ayuda, monitoreo preventivo y mejoras continuas.</p>
+                        <ul>
+                            <li>SLA medidos</li>
+                            <li>Plan de hardening</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon"><i class="fas fa-road"></i></div>
+                        <h3>Roadmaps a medida</h3>
+                        <p>Assessment, blueprint y planes de adopción con quick wins.</p>
+                        <ul>
+                            <li>Assessment en 10 días</li>
+                            <li>Quick wins garantizados</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TESTIMONIO -->
+            <section class="testimonial-section">
+                <div class="testimonial-card">
+                    <p class="testimonial-quote">"Nuestra asociación con BlackPears es tan sólida porque sus expertos
+                        están a nuestro lado 24/7. Sin esa rapidez, los proyectos se alargan y los costos se disparan."
+                    </p>
+                    <p class="testimonial-author">— Laura Méndez, Directora de TI en Empresa Global</p>
+                </div>
+            </section>
+
+            <!-- BLACKPEARS X-PERT -->
+            <section class="xpert-section">
+                <div class="xpert-grid">
+                    <div class="xpert-content">
+                        <h2>BlackPears <span class="purple">X-pert</span></h2>
+                        <p>Benefíciese de nuestra amplia experiencia en todos los módulos SAP. Nuestro equipo senior
+                            comparte conocimiento y buenas prácticas para proteger y optimizar su operación.</p>
+                    </div>
+                    <div class="xpert-image">
+                        <div class="image-placeholder"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVENTOS Y FORMACIÓN -->
+            <section id="recursos" class="events-section">
+                <div class="section-header">
+                    <h2>Eventos y <span class="purple">formación</span></h2>
+                    <p class="section-subtitle">Asista a nuestros webinars o consulte nuestros talleres prácticos para
+                        desarrollar las competencias necesarias en SAP.</p>
+                </div>
+                <div class="events-grid">
+                    <div class="event-card">
+                        <h3>Webinar: Optimización FI/CO</h3>
+                        <p>27 de mayo, 11:00 AM</p>
+                        <a href="#" class="event-link">Registrarse →</a>
+                    </div>
+                    <div class="event-card">
+                        <h3>Taller: ABAP avanzado</h3>
+                        <p>3 de junio, 10:00 AM</p>
+                        <a href="#" class="event-link">Registrarse →</a>
+                    </div>
+                    <div class="event-card">
+                        <h3>Curso: Introducción a SAP HANA</h3>
+                        <p>10 de junio, 9:00 AM</p>
+                        <a href="#" class="event-link">Registrarse →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTACTO -->
+            <section id="contacto" class="contact-section">
+                <div class="contact-container">
+                    <h2>Hablemos de su operación <span class="purple">SAP</span></h2>
+                    <p>Cuéntenos su reto y en menos de 24h le proponemos un plan de acción.</p>
+                    <a href="#" class="btn-primary btn-large">Contactar ahora</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>BlackPears</h4>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="#">Formación SAP</a></li>
+                        <li><a href="#">Implementación</a></li>
+                        <li><a href="#">Soporte AMS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Casos de éxito</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@blackpears.com">info@blackpears.com</a>
+                        </li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+581234567890">+58 123 4567890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 BlackPears Consulting. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="particles.js"></script>
+</body>
+
+</html>

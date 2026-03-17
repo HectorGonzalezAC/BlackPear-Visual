@@ -1,0 +1,197 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears · SAP redefined</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Header flotante minimalista -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">BLACKPEARS</div>
+            <nav class="nav">
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#about" class="nav-link">Estudio</a>
+                <a href="#especialidades" class="nav-link">Especialidades</a>
+                <a href="#video" class="nav-link">Filosofía</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="login.html" class="nav-link login">Acceso</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero con diseño asimétrico -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">SAP</span>
+                    <span class="title-line">expertise</span>
+                    <span class="title-line accent">que conecta</span>
+                </h1>
+                <p class="hero-sub">Implementación · Formación · Soporte 24/7</p>
+                <a href="#contacto" class="btn">Conversemos</a>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-stat-card">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">proyectos</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">años</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">soporte</span>
+                </div>
+                <div class="hero-decor"></div>
+            </div>
+        </section>
+
+        <!-- Quienes somos con diseño de dos columnas -->
+        <section id="about" class="about">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Quienes somos</h2>
+                    <p>Somos BlackPears, una firma de asesoría especializada en SAP. Nuestra misión es ser tu socio
+                        estratégico y ayudarte a navegar la complejidad tecnológica con resultados medibles.</p>
+                    <p>Diseñamos implementaciones, optimizamos procesos y formamos equipos internos para que tu
+                        operación sea ágil, trazable y segura. Trabajamos con metodologías probadas y un equipo
+                        certificado que acompaña de punta a punta cada proyecto.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">+15</span>
+                        <span class="stat-desc">años de experiencia media del equipo</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-desc">consultores certificados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">98%</span>
+                        <span class="stat-desc">clientes que renuevan</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Especialidades en tarjetas con efecto de profundidad -->
+        <section id="especialidades" class="specialties">
+            <h2 class="section-title">Especialidades</h2>
+            <div class="specialties-grid">
+                <div class="specialty-item">
+                    <div class="specialty-icon">🎓</div>
+                    <h3>INTRO SAP + Formación</h3>
+                    <p>Onboarding acelerado, talleres prácticos y rutas de certificación.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">⚙️</div>
+                    <h3>ABAP & Extensiones</h3>
+                    <p>Automatizamos procesos, creamos integraciones a medida.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">📊</div>
+                    <h3>SAP HANA / BI / BW</h3>
+                    <p>Modelos de datos, reporting ejecutivo y tableros en tiempo real.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">💰</div>
+                    <h3>SAP FI / CO</h3>
+                    <p>Control financiero con cierres rápidos y trazabilidad contable.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🛡️</div>
+                    <h3>Soporte y AMS</h3>
+                    <p>Mesa de ayuda, monitoreo preventivo y mejoras continuas.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">🗺️</div>
+                    <h3>Roadmaps a medida</h3>
+                    <p>Evaluaciones rápidas y planes de adopción con quick wins.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de video con diseño cinematográfico -->
+        <section id="video" class="video">
+            <div class="video-container">
+                <div class="video-frame">
+                    <video controls poster="https://via.placeholder.com/1280x720/2e1a47/ffffff?text=BlackPears">
+                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-overlay">
+                    <h2>Conoce nuestra filosofía</h2>
+                    <p>En menos de 2 minutos, descubre cómo transformamos negocios con SAP.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto con diseño limpio -->
+        <section id="contacto" class="contact">
+            <div class="contact-inner">
+                <div class="contact-info">
+                    <h2>Hablemos de tu operación SAP</h2>
+                    <p>Cuéntanos tu reto y en menos de 24h te proponemos un plan de acción con quick wins y un roadmap
+                        claro.</p>
+                    <div class="features">
+                        <span>✓ Respuesta en 24h</span>
+                        <span>✓ SLA claros</span>
+                        <span>✓ Operamos 24/7</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono (opcional)">
+                    <textarea placeholder="Mensaje" rows="4"></textarea>
+                    <label class="checkbox">
+                        <input type="checkbox"> ¿Tienes WhatsApp activo?
+                    </label>
+                    <button type="submit" class="btn">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">BLACKPEARS</div>
+            <div class="footer-links">
+                <a href="#">Aviso legal</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+        <p class="footer-copy">© 2025 BlackPears Consulting · Todos los derechos reservados</p>
+    </footer>
+
+    <script src="particles.js"></script>
+    <script>
+        // Efecto de aparición suave al hacer scroll (scroll reveal básico)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section, .about-container, .specialties-grid, .video-container, .contact-inner').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

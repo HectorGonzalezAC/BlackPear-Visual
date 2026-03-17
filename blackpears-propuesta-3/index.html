@@ -1,0 +1,415 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears Consulting | Propuesta Rediseño</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (para el icono del logo) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+    <!-- Contenedor de partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Header mejorado (con nuevo logo) -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>BlackPears</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="#quienes-somos" class="nav-link">Quiénes Somos</a></li>
+                    <li><a href="#video" class="nav-link">Video</a></li>
+                    <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="login.html" class="nav-link">Plataforma</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="content">
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1 class="hero-title animate-fade-in">
+                    <span class="hero-subtitle">Consultoría + Formación SAP</span>
+                    Impulsa tu operación con expertos SAP
+                </h1>
+                <p class="hero-description animate-fade-in-delay">
+                    Implementamos, optimizamos y formamos a tu equipo en los módulos clave de SAP para acelerar
+                    resultados y minimizar riesgos operativos.
+                </p>
+                <div class="hero-stats animate-fade-in-delay-2">
+                    <div class="stat-item">
+                        <span class="stat-number">120+</span>
+                        <span class="stat-label">Proyectos SAP</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Soporte operativo</span>
+                    </div>
+                </div>
+                <a href="#contacto" class="btn-primary animate-fade-in-delay-3">Inicia tu transformación</a>
+            </div>
+        </section>
+
+        <!-- Quienes Somos -->
+        <section id="quienes-somos" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="section-title">Quienes Somos</h2>
+                        <p class="about-text">
+                            Somos BlackPears, una firma de asesoría especializada en SAP. Nuestra misión es ser tu socio
+                            estratégico y ayudarte a navegar la complejidad tecnológica con resultados medibles.
+                        </p>
+                        <p class="about-text">
+                            Diseñamos implementaciones, optimizamos procesos y formamos equipos internos para que tu
+                            operación sea ágil, trazable y segura.
+                        </p>
+                        <p class="about-text">
+                            Trabajamos con metodologías probadas y un equipo certificado que acompaña de punta a punta
+                            cada proyecto.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-card-number">120+</span>
+                                <span class="stat-card-label">Proyectos SAP</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-card-number">10+</span>
+                                <span class="stat-card-label">Años de experiencia</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-card-number">24/7</span>
+                                <span class="stat-card-label">Soporte operativo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Video -->
+        <section id="video" class="video-section">
+            <div class="container">
+                <h2 class="section-title text-center">Conoce más sobre nosotros</h2>
+                <p class="section-subtitle text-center">Mira este video para entender cómo podemos transformar tu
+                    operación SAP</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video BlackPears" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Especialidades SAP -->
+        <section id="especialidades" class="specialties">
+            <div class="container">
+                <h2 class="section-title text-center">Nuestras especialidades SAP</h2>
+                <p class="section-subtitle text-center">Diseñamos, ejecutamos y entrenamos</p>
+                <div class="specialties-grid">
+                    <!-- Tarjeta 1 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 4v16M4 12h16" stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>INTRO SAP + Formación</h3>
+                        <p>Onboarding acelerado, talleres prácticos y rutas de certificación para equipos que necesitan
+                            productividad inmediata.</p>
+                        <ul class="card-features">
+                            <li>Laboratorios guiados y casos reales.</li>
+                            <li>KPIs de adopción y seguimiento semanal.</li>
+                        </ul>
+                    </div>
+                    <!-- Tarjeta 2 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>ABAP & Extensiones</h3>
+                        <p>Automatizamos procesos, creamos integraciones y extensiones a medida siguiendo buenas
+                            prácticas y seguridad.</p>
+                        <ul class="card-features">
+                            <li>Integraciones con sistemas legados y cloud.</li>
+                            <li>Optimización de performance y trazabilidad.</li>
+                        </ul>
+                    </div>
+                    <!-- Tarjeta 3 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"
+                                    stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>SAP HANA / BI / BW</h3>
+                        <p>Modelos de datos, reporting ejecutivo y tableros que conectan finanzas, logística y operación
+                            en tiempo real.</p>
+                        <ul class="card-features">
+                            <li>Dashboards para dirección y operación.</li>
+                            <li>Monitoreo de calidad y gobierno de datos.</li>
+                        </ul>
+                    </div>
+                    <!-- Tarjeta 4 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M21 12v4a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h7" stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>SAP FI / CO</h3>
+                        <p>Control financiero y de costos con cierres más rápidos, conciliaciones automatizadas y
+                            trazabilidad contable.</p>
+                        <ul class="card-features">
+                            <li>Automatización de cierres y reportes.</li>
+                            <li>KPIs financieros en tiempo real.</li>
+                        </ul>
+                    </div>
+                    <!-- Tarjeta 5 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" stroke="#9b59b6" />
+                                <path d="M12 8v4l3 3" stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>Soporte y AMS</h3>
+                        <p>Mesa de ayuda, monitoreo preventivo y mejoras continuas con SLA claros y reportes ejecutivos.
+                        </p>
+                        <ul class="card-features">
+                            <li>SLA medidos y dashboard de tickets.</li>
+                            <li>Plan de hardening y seguridad.</li>
+                        </ul>
+                    </div>
+                    <!-- Tarjeta 6 -->
+                    <div class="specialty-card">
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M2 3h6a4 4 0 014 4v14M21 3h-6a4 4 0 00-4 4v14" stroke="#9b59b6" />
+                            </svg>
+                        </div>
+                        <h3>Roadmaps a medida</h3>
+                        <p>Evaluaciones rápidas, blueprint y planes de adopción para modernizar tu stack SAP sin frenar
+                            la operación.</p>
+                        <ul class="card-features">
+                            <li>Assessment inicial en 10 días.</li>
+                            <li>Plan de adopción con quick wins.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="section-title">Hablemos de tu operación SAP</h2>
+                        <p class="contact-description">
+                            Cuéntanos tu reto y en menos de 24h te proponemos un plan de acción con quick wins y un
+                            roadmap claro.
+                        </p>
+                        <div class="contact-features">
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Respuesta en 24h con agenda priorizada.</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>SLA claros y acompañamiento continuo.</span>
+                            </div>
+                            <div class="feature">
+                                <span class="feature-icon">✓</span>
+                                <span>Operamos 24/7 para incidencias críticas.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name" class="sr-only">Nombre completo</label>
+                                <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Correo electrónico</label>
+                                <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="sr-only">Teléfono (opcional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Teléfono (opcional)">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="sr-only">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Cuéntanos tu reto..."
+                                    required></textarea>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="whatsapp" name="whatsapp">
+                                <label for="whatsapp">¿Tienes WhatsApp activo en este número?</label>
+                            </div>
+                            <button type="submit" class="btn-primary btn-block">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer mejorado (rediseñado) -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-cube"></i>
+                    <span>BlackPears</span>
+                    <p>Transformando la gestión de proveedores con soluciones SAP de vanguardia.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                        <li><a href="#video">Video</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="login.html">Plataforma</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> soporte@blackpears.com</p>
+                    <p><i class="fas fa-phone-alt"></i> +34 123 456 789</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BlackPears. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicializar particles.js con color morado
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#9b59b6' }, // morado
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: '#9b59b6', opacity: 0.2, width: 1 },
+                    move: { enable: true, speed: 2, direction: 'none', random: true, straight: false, out_mode: 'out' }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    },
+                    modes: {
+                        repulse: { distance: 100, duration: 0.4 },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Header sticky effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scroll y active link
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Simulación de envío
+            const form = document.getElementById('contactForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Gracias por contactarnos. En breve recibirás una respuesta.');
+                    form.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

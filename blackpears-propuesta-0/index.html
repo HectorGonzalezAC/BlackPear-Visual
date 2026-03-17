@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears · Plataforma para proveedores</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                <i class="fas fa-cube"></i>
+                <span>BlackPears</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
+                    <li><a href="#proveedores">Proveedores</a></li>
+                    <li><a href="#caracteristicas">Características</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+                <a href="login.html?registro=true" class="btn btn-primary">Registrarse</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-background"></div>
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Gestión inteligente <span class="highlight">para proveedores</span></h1>
+                <p>Conectamos tu negocio con las mejores oportunidades. Plataforma segura, ágil y diseñada para crecer.
+                </p>
+                <div class="hero-buttons">
+                    <a href="login.html?registro=true" class="btn btn-primary btn-large">Comenzar ahora</a>
+                    <a href="#caracteristicas" class="btn btn-outline btn-large">Conocer más</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-boxes"></i>
+                <i class="fas fa-handshake"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Aliados estratégicos</h2>
+            <div class="brands-grid">
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-building"></i>
+                    <span>Marca 1</span>
+                </div>
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-store"></i>
+                    <span>Marca 2</span>
+                </div>
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Marca 3</span>
+                </div>
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-truck"></i>
+                    <span>Marca 4</span>
+                </div>
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-box"></i>
+                    <span>Marca 5</span>
+                </div>
+                <div class="brand-item" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-globe"></i>
+                    <span>Marca 6</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caracteristicas" class="features">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">¿Qué ofrecemos?</h2>
+            <div class="features-grid">
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Rápido y eficiente</h3>
+                    <p>Procesa tus pedidos en tiempo real con nuestra plataforma optimizada.</p>
+                </div>
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguridad garantizada</h3>
+                    <p>Tus datos están protegidos con los más altos estándares.</p>
+                </div>
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Reportes avanzados</h3>
+                    <p>Obtén estadísticas clave para tomar mejores decisiones.</p>
+                </div>
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Nuestro equipo está siempre disponible para ayudarte.</p>
+                </div>
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Acceso móvil</h3>
+                    <p>Gestiona tu negocio desde cualquier lugar, en cualquier dispositivo.</p>
+                </div>
+                <div class="card feature-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Relaciones con proveedores</h3>
+                    <p>Conecta con proveedores de confianza y negocia mejores condiciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-cube"></i>
+                    <span>BlackPears</span>
+                    <p>Transformando la gestión de proveedores en Venezuela.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#proveedores">Proveedores</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> soporte@blackpears.com</p>
+                    <p><i class="fas fa-phone"></i> +58 123 4567890</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BlackPears. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        const toggle = document.getElementById('mobileMenuToggle');
+        const nav = document.querySelector('.main-nav');
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
