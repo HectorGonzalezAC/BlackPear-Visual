@@ -1,5 +1,5 @@
 // particles.js - Fondo de partículas entrelazadas (conexiones dinámicas)
-// particles.js - Fondo de partículas entrelazadas en tonos morados
+// particles.js - Fondo de partículas entrelazadas en tonos morados más brillantes
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -19,8 +19,8 @@ class Particle {
         this.vx = (Math.random() - 0.5) * 0.4;
         this.vy = (Math.random() - 0.5) * 0.4;
         this.radius = Math.random() * 2.5 + 1.5;
-        // tonos morados aleatorios
-        const purpleShades = ['183, 148, 244', '139, 92, 246', '168, 85, 247', '192, 132, 252'];
+        // tonos morados más brillantes
+        const purpleShades = ['183, 148, 244', '155, 93, 229', '139, 92, 246', '168, 85, 247'];
         const chosen = purpleShades[Math.floor(Math.random() * purpleShades.length)];
         this.color = `rgba(${chosen}, ${Math.random() * 0.5 + 0.3})`;
     }
@@ -68,7 +68,7 @@ function connect() {
             const dist = Math.sqrt(dx * dx + dy * dy);
             if (dist < MAX_DIST) {
                 const opacity = 1 - dist / MAX_DIST;
-                ctx.strokeStyle = `rgba(183, 148, 244, ${opacity * 0.25})`; // conexiones moradas suaves
+                ctx.strokeStyle = `rgba(183, 148, 244, ${opacity * 0.3})`; // conexiones más visibles
                 ctx.lineWidth = 0.8;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
