@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Estudio · BlackPears</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* ===== VARIABLES (copiadas de la propuesta original) ===== */
+        :root {
+            --primary-dark: #0a1929;
+            --primary-darker: #05121e;
+            --accent-purple: #9b59b6;
+            --accent-light: #b27cc2;
+            --accent-deep: #8e44ad;
+            --white: #ffffff;
+            --off-white: #f0f4fa;
+            --text-muted: #b0c4de;
+            --glass-bg: rgba(10, 25, 41, 0.7);
+            --glass-border: rgba(155, 89, 182, 0.2);
+            --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* ===== RESET / GLOBALES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--primary-dark);
+            color: var(--off-white);
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Partículas (fijo) */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== TIPOGRAFÍA ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .accent-text {
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        /* ===== HEADER (panel) ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 25, 41, 0.6);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: background 0.3s;
+        }
+
+        .header.scrolled {
+            background: var(--primary-darker);
+            box-shadow: 0 10px 30px -10px black;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--accent-purple);
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: var(--white);
+        }
+
+        .logo .pears {
+            color: var(--accent-purple);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-purple);
+        }
+
+        .breadcrumb i {
+            font-size: 0.7rem;
+            color: var(--accent-purple);
+        }
+
+        /* User menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .notifications {
+            position: relative;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .notifications:hover {
+            color: var(--accent-purple);
+        }
+
+        .notifications .badge {
+            position: absolute;
+            top: -5px;
+            right: -8px;
+            background: var(--accent-purple);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 2px 5px;
+            border-radius: 20px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .user-name {
+            font-size: 0.95rem;
+            color: var(--white);
+        }
+
+        .user-name small {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== BIENVENIDA ===== */
+        .welcome-section {
+            padding: 2rem 0 1rem;
+        }
+
+        .welcome-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .welcome-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .welcome-text p {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .welcome-text p i {
+            color: var(--accent-purple);
+        }
+
+        .quick-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            display: block;
+        }
+
+        .stat .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* ===== SEARCH SECTION (NUEVO) ===== */
+        .search-section {
+            margin: 2rem 0;
+        }
+
+        .search-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            min-width: 250px;
+        }
+
+        .search-bar i {
+            color: var(--accent-purple);
+            font-size: 1.2rem;
+        }
+
+        .search-bar input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            outline: none;
+        }
+
+        .search-bar input::placeholder {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .search-bar .btn-primary {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            background: var(--accent-purple);
+            border: none;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-bar .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .search-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .filter-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 0.4rem 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .filter-chip:hover,
+        .filter-chip.active {
+            background: var(--accent-purple);
+            color: white;
+            border-color: var(--accent-purple);
+        }
+
+        /* ===== GRID DE CURSOS ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-purple);
+        }
+
+        .course-thumb {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(145deg, #2a1b3d, #1e2a3a);
+            border-radius: 16px;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple);
+            font-size: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-thumb .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .course-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .course-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .course-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 0.8rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-purple);
+            border-radius: 10px;
+            width: 0%;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .course-footer span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-continue {
+            background: transparent;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-continue:hover {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        /* ===== SECCIÓN DE ACTIVIDADES / CALENDARIO ===== */
+        .activities-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .activities-list,
+        .calendar-preview {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 1.8rem;
+        }
+
+        .activities-list h2,
+        .calendar-preview h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(155, 89, 182, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple);
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .activity-details p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        /* Mini calendario (simulado) */
+        .mini-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-day {
+            text-align: center;
+            font-size: 0.75rem;
+            padding: 0.4rem 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        .calendar-day.today {
+            background: var(--accent-purple);
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-day.event {
+            border: 1px solid var(--accent-purple);
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            color: var(--off-white);
+        }
+
+        .event-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+        }
+
+        /* ===== RECOMENDADOS ===== */
+        .recommended-section {
+            margin-bottom: 3rem;
+        }
+
+        .recommended-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .rec-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1rem;
+            transition: 0.2s;
+        }
+
+        .rec-card:hover {
+            border-color: var(--accent-purple);
+        }
+
+        .rec-thumb {
+            height: 100px;
+            background: linear-gradient(145deg, #2a1b3d, #1e2a3a);
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-purple);
+        }
+
+        .rec-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .rec-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-card .btn-continue {
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+        }
+
+        /* ===== FOOTER SIMPLIFICADO ===== */
+        .main-footer {
+            background: var(--primary-darker);
+            border-top: 1px solid var(--glass-border);
+            padding: 2rem 0 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            .activities-section {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .quick-stats {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .header-container {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 30px;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-filters {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .user-name {
+                display: none;
+            }
+
+            .breadcrumb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Partículas de fondo -->
+    <div id="particles-js"></div>
+
+    <!-- Header del panel -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>Black<span class="pears">Pears</span></span>
+            </div>
+            <div class="breadcrumb">
+                <a href="index.html">Inicio</a> <i class="fas fa-chevron-right"></i>
+                <span>Mi estudio</span>
+            </div>
+            <div class="user-menu">
+                <div class="notifications">
+                    <i class="far fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">JD</div>
+                    <div class="user-name">
+                        Javier Díaz
+                        <small>Plan Profesional</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Bienvenida -->
+        <section class="welcome-section">
+            <div class="welcome-card">
+                <div class="welcome-text">
+                    <h1>¡Hola de nuevo, Javier! <i class="fas fa-hand-peace" style="color: #9b59b6;"></i></h1>
+                    <p><i class="fas fa-calendar-alt"></i> 18 de marzo, 2026 · Tienes 2 tareas pendientes</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <span class="value">4</span>
+                        <span class="label">Cursos activos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">12h</span>
+                        <span class="label">Estudiadas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">3</span>
+                        <span class="label">Certificaciones</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN DE BÚSQUEDA DE CURSOS -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar cursos, módulos o instructores...">
+                    <button class="btn-primary">Buscar</button>
+                </div>
+                <div class="search-filters">
+                    <span class="filter-chip active">Todos</span>
+                    <span class="filter-chip">SAP HANA</span>
+                    <span class="filter-chip">ABAP</span>
+                    <span class="filter-chip">FI/CO</span>
+                    <span class="filter-chip">BI/BW</span>
+                    <span class="filter-chip">Seguridad</span>
+                    <span class="filter-chip">Cloud</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mis cursos en progreso -->
+        <section>
+            <h2 class="section-title">Continúa tu aprendizaje</h2>
+            <div class="courses-grid">
+                <!-- Curso 1 -->
+                <div class="course-card">
+                    <div class="course-thumb">
+                        <i class="fas fa-database"></i>
+                        <div class="overlay">
+                            <span class="btn-continue">Continuar</span>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <h3>Implementación SAP HANA</h3>
+                        <p><i class="far fa-clock"></i> Módulo 4 de 8</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span>45% completo</span>
+                        <a href="#" class="btn-continue">Continuar</a>
+                    </div>
+                </div>
+                <!-- Curso 2 -->
+                <div class="course-card">
+                    <div class="course-thumb">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="course-info">
+                        <h3>ABAP Workbench</h3>
+                        <p><i class="far fa-clock"></i> Módulo 2 de 10</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span>20% completo</span>
+                        <a href="#" class="btn-continue">Continuar</a>
+                    </div>
+                </div>
+                <!-- Curso 3 -->
+                <div class="course-card">
+                    <div class="course-thumb">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="course-info">
+                        <h3>SAP BI / BW</h3>
+                        <p><i class="far fa-clock"></i> Módulo 6 de 12</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span>70% completo</span>
+                        <a href="#" class="btn-continue">Continuar</a>
+                    </div>
+                </div>
+                <!-- Curso 4 -->
+                <div class="course-card">
+                    <div class="course-thumb">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="course-info">
+                        <h3>SAP FI/CO avanzado</h3>
+                        <p><i class="far fa-clock"></i> Módulo 1 de 6</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                    <div class="course-footer">
+                        <span>10% completo</span>
+                        <a href="#" class="btn-continue">Continuar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actividades y Calendario -->
+        <section class="activities-section">
+            <!-- Próximas actividades -->
+            <div class="activities-list">
+                <h2><i class="fas fa-tasks" style="margin-right: 0.5rem; color: var(--accent-purple);"></i>Próximas
+                    entregas</h2>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-file-pdf"></i></div>
+                    <div class="activity-details">
+                        <h4>Entregar ejercicio ABAP</h4>
+                        <p>Curso: ABAP Workbench</p>
+                    </div>
+                    <div class="activity-time">Mañana, 23:59</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-video"></i></div>
+                    <div class="activity-details">
+                        <h4>Sesión en vivo: HANA modeling</h4>
+                        <p>Instructor: Ana López</p>
+                    </div>
+                    <div class="activity-time">20 mar, 18:00</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-question-circle"></i></div>
+                    <div class="activity-details">
+                        <h4>Cuestionario módulo 4</h4>
+                        <p>SAP HANA</p>
+                    </div>
+                    <div class="activity-time">22 mar, 23:59</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-users"></i></div>
+                    <div class="activity-details">
+                        <h4>Trabajo en grupo: Integración</h4>
+                        <p>Grupo 3</p>
+                    </div>
+                    <div class="activity-time">25 mar, 14:00</div>
+                </div>
+            </div>
+
+            <!-- Vista previa calendario -->
+            <div class="calendar-preview">
+                <h2><i class="far fa-calendar-alt" style="margin-right: 0.5rem; color: var(--accent-purple);"></i>Marzo
+                    2026</h2>
+                <div class="mini-calendar">
+                    <div class="calendar-day">L</div>
+                    <div class="calendar-day">M</div>
+                    <div class="calendar-day">M</div>
+                    <div class="calendar-day">J</div>
+                    <div class="calendar-day">V</div>
+                    <div class="calendar-day">S</div>
+                    <div class="calendar-day">D</div>
+                    <!-- Días (simulados) -->
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day today">18</div>
+                    <div class="calendar-day event">19</div>
+                    <div class="calendar-day event">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day event">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day event">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                    <div class="calendar-day">31</div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <div class="event-item"><span class="event-dot"></span> 19/03: Entrega ABAP</div>
+                    <div class="event-item"><span class="event-dot"></span> 20/03: Sesión en vivo HANA</div>
+                    <div class="event-item"><span class="event-dot"></span> 22/03: Cuestionario módulo 4</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cursos recomendados -->
+        <section class="recommended-section">
+            <h2 class="section-title">Recomendados para ti</h2>
+            <div class="recommended-grid">
+                <div class="rec-card">
+                    <div class="rec-thumb"><i class="fas fa-shield-alt"></i></div>
+                    <h4>SAP Security</h4>
+                    <p>Protege tu entorno</p>
+                    <a href="#" class="btn-continue">Ver curso</a>
+                </div>
+                <div class="rec-card">
+                    <div class="rec-thumb"><i class="fas fa-cloud"></i></div>
+                    <h4>SAP en la nube</h4>
+                    <p>Estrategias cloud</p>
+                    <a href="#" class="btn-continue">Ver curso</a>
+                </div>
+                <div class="rec-card">
+                    <div class="rec-thumb"><i class="fas fa-robot"></i></div>
+                    <h4>RPA con SAP</h4>
+                    <p>Automatización</p>
+                    <a href="#" class="btn-continue">Ver curso</a>
+                </div>
+                <div class="rec-card">
+                    <div class="rec-thumb"><i class="fas fa-chart-line"></i></div>
+                    <h4>Analytics avanzado</h4>
+                    <p>Dashboards</p>
+                    <a href="#" class="btn-continue">Ver curso</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer simplificado -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-cube"></i> BlackPears · Plataforma de aprendizaje
+                </div>
+                <div class="footer-links">
+                    <a href="#">Términos</a>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Ayuda</a>
+                    <a href="index.html">Volver al sitio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 BlackPears Consulting. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicializar particles.js (misma configuración que en el sitio)
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 60, density: { enable: true, value_area: 800 } },
+                    color: { value: '#b583df' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.4, random: true },
+                    size: { value: 2.5, random: true },
+                    line_linked: { enable: true, distance: 120, color: '#b583df', opacity: 0.15, width: 1 },
+                    move: { enable: true, speed: 1.5, direction: 'none', random: true, out_mode: 'out' }
+                },
+                interactivity: {
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' }
+                    },
+                    modes: {
+                        repulse: { distance: 80 },
+                        push: { particles_nb: 3 }
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Sticky header effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Simulación de clic en chips de filtro (para dar feedback visual)
+            const chips = document.querySelectorAll('.filter-chip');
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    chips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1142 @@
+<!-- panel-estudiante.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears · Mi Estudio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --progress-bar: var(--accent-light);
+            --gradient-1: linear-gradient(145deg, #f3e8ff, #ffffff);
+            --section-spacing: 90px;
+            --card-spacing: 40px;
+            --inner-card-padding: 32px;
+        }
+
+        body {
+            background: var(--bg-body);
+        }
+
+        .dashboard-container {
+            padding: 40px 0 80px;
+        }
+
+        .section-block {
+            margin-bottom: var(--section-spacing);
+        }
+
+        /* ===== CABECERA ===== */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 48px;
+            border: 1px solid var(--border-accent);
+        }
+
+        .welcome h1 {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .welcome p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .user-avatar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
+            padding: 12px 35px;
+            border-radius: 60px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .user-avatar i {
+            font-size: 3rem;
+            color: var(--accent);
+        }
+
+        .user-info .name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.3rem;
+        }
+
+        .user-info .role {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== KPIS ===== */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 35px;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 40px;
+            padding: 35px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(142, 68, 173, 0.1);
+        }
+
+        .summary-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(142, 68, 173, 0.15);
+        }
+
+        .summary-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--bg-soft-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+
+        .summary-details h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .summary-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== NUEVA SECCIÓN DE BÚSQUEDA ===== */
+        .search-section {
+            background: white;
+            border-radius: 48px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .search-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .search-title i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .search-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: #f8f5ff;
+            border-radius: 60px;
+            border: 2px solid var(--border-light);
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(142, 68, 173, 0.15);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 20px 30px;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: #aaa;
+        }
+
+        .search-box button {
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 0 40px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box button:hover {
+            background: var(--accent-dark);
+        }
+
+        .categories-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .category-tag {
+            background: var(--bg-soft-purple);
+            color: var(--accent);
+            padding: 12px 25px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .category-tag:hover {
+            background: white;
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        /* ===== TÍTULOS DE SECCIÓN ===== */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .view-all {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== CURSOS EN PROGRESO ===== */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 36px;
+            padding: var(--inner-card-padding);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 36px 36px 0 0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(142, 68, 173, 0.1);
+            border-color: var(--accent-light);
+        }
+
+        .course-card h3 {
+            font-size: 1.5rem;
+            margin: 0 0 25px 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .course-progress {
+            margin-bottom: 25px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e9e9e9;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 20px;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .course-time {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .btn-continue {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 10px 25px;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-continue:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ===== ACTIVIDADES ===== */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 32px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.2s;
+        }
+
+        .activity-card:hover {
+            border-color: var(--accent);
+            background: #fcf8ff;
+        }
+
+        .activity-date {
+            background: var(--bg-soft-purple);
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .activity-date .day {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .activity-date .month {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .activity-info {
+            flex: 1;
+        }
+
+        .activity-info .title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .activity-info .type {
+            font-size: 0.95rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== RECOMENDADOS ===== */
+        .recommended-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .rec-card {
+            background: white;
+            border-radius: 32px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.2s;
+        }
+
+        .rec-card:hover {
+            border-color: var(--accent);
+            background: #fcf8ff;
+        }
+
+        .rec-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--bg-soft-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .rec-info {
+            flex: 1;
+        }
+
+        .rec-info .title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+            font-size: 1.2rem;
+        }
+
+        .rec-info .meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .btn-small {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-small:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ===== ESTADÍSTICAS (REALZADAS) ===== */
+        .stats-section {
+            margin-top: var(--section-spacing);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 40px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 25px 50px -12px rgba(142, 68, 173, 0.25);
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            border-radius: 62px;
+            z-index: -1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 35px;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 40px;
+            padding: var(--inner-card-padding);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+        }
+
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+        }
+
+        .chart-bars {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            height: 220px;
+            gap: 20px;
+        }
+
+        .bar-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bar {
+            width: 100%;
+            background: var(--bg-soft-purple);
+            border-radius: 20px 20px 0 0;
+            height: calc(100% - 35px);
+            min-height: 40px;
+            transition: height 0.3s;
+        }
+
+        .bar.fill {
+            background: linear-gradient(0deg, var(--accent), var(--accent-light));
+        }
+
+        .bar-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .streak-card {
+            background: white;
+            border-radius: 40px;
+            padding: var(--inner-card-padding);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .streak-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin: 20px 0 10px;
+        }
+
+        .streak-icon {
+            font-size: 3rem;
+            color: var(--accent-light);
+            margin-bottom: 15px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+
+            .courses-grid,
+            .activities-grid,
+            .recommended-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            :root {
+                --section-spacing: 60px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .courses-grid,
+            .activities-grid,
+            .recommended-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px;
+            }
+
+            .summary-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                background: none;
+                gap: 15px;
+            }
+
+            .search-box input {
+                background: #f8f5ff;
+                border-radius: 60px;
+                padding: 15px 25px;
+            }
+
+            .search-box button {
+                padding: 15px 25px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #particlesCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particlesCanvas"></canvas>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i>
+                <span>BlackPears</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#nosotros">Nosotros</a></li>
+                    <li><a href="../index.html#especialidades">Especialidades</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                    <li><a href="../login.html">Cerrar sesión</a></li>
+                </ul>
+            </nav>
+            <a href="../index.html#contacto" class="btn btn-primary">Hablar con un experto</a>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="container">
+            <!-- CABECERA -->
+            <div class="section-block">
+                <div class="dashboard-header">
+                    <div class="welcome">
+                        <h1>¡Hola de nuevo, Carolina! 👋</h1>
+                        <p>Tu espacio de aprendizaje en BlackPears Estudio</p>
+                    </div>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="user-info">
+                            <div class="name">Carolina Méndez</div>
+                            <div class="role">Estudiante avanzado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPIS -->
+            <div class="section-block">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-play-circle"></i></div>
+                        <div class="summary-details">
+                            <h3>6</h3>
+                            <p>Cursos activos</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="summary-details">
+                            <h3>12</h3>
+                            <p>Certificaciones</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-clock"></i></div>
+                        <div class="summary-details">
+                            <h3>48h</h3>
+                            <p>Tiempo de estudio</p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="summary-details">
+                            <h3>3</h3>
+                            <p>Logros obtenidos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUEVA SECCIÓN: BUSCAR NUEVOS CURSOS -->
+            <div class="section-block">
+                <div class="search-section">
+                    <h2 class="search-title"><i class="fas fa-magnifying-glass"></i> Explora nuevos cursos</h2>
+                    <p class="search-description">Encuentra el curso ideal para ti entre más de 100 opciones en SAP</p>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar por título, módulo o instructor...">
+                        <button><i class="fas fa-search"></i> Buscar</button>
+                    </div>
+                    <div class="categories-tags">
+                        <a href="#" class="category-tag">SAP FI</a>
+                        <a href="#" class="category-tag">ABAP</a>
+                        <a href="#" class="category-tag">SAP HANA</a>
+                        <a href="#" class="category-tag">SAP CO</a>
+                        <a href="#" class="category-tag">Cloud</a>
+                        <a href="#" class="category-tag">BW/4HANA</a>
+                        <a href="#" class="category-tag">Seguridad</a>
+                        <a href="#" class="category-tag">SAP S/4HANA</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSOS EN PROGRESO -->
+            <div class="section-block">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-rocket"></i>
+                        <h2>Continúa tu aprendizaje</h2>
+                    </div>
+                    <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h3>SAP S/4HANA Finance (FI)</h3>
+                        <div class="course-progress">
+                            <div class="progress-label">
+                                <span>Progreso</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-time"><i class="far fa-clock"></i> 12h 30m</span>
+                            <a href="#" class="btn-continue">Continuar</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <h3>ABAP para extensiones</h3>
+                        <div class="course-progress">
+                            <div class="progress-label">
+                                <span>Progreso</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-time"><i class="far fa-clock"></i> 4h 20m</span>
+                            <a href="#" class="btn-continue">Continuar</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <h3>SAP HANA modeling</h3>
+                        <div class="course-progress">
+                            <div class="progress-label">
+                                <span>Progreso</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%;"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-time"><i class="far fa-clock"></i> 20h</span>
+                            <a href="#" class="btn-continue">Continuar</a>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <h3>SAP CO (Controlling)</h3>
+                        <div class="course-progress">
+                            <div class="progress-label">
+                                <span>Progreso</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%;"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-time"><i class="far fa-clock"></i> 15h</span>
+                            <a href="#" class="btn-continue">Continuar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRÓXIMAS ACTIVIDADES -->
+            <div class="section-block">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h2>Próximas actividades</h2>
+                    </div>
+                    <a href="#" class="view-all">Ver calendario <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-date">
+                            <div class="day">15</div>
+                            <div class="month">JUN</div>
+                        </div>
+                        <div class="activity-info">
+                            <div class="title">Webinar: Mejores prácticas en FI</div>
+                            <div class="type"><i class="fas fa-video"></i> Evento en vivo</div>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-date">
+                            <div class="day">20</div>
+                            <div class="month">JUN</div>
+                        </div>
+                        <div class="activity-info">
+                            <div class="title">Entrega de caso práctico ABAP</div>
+                            <div class="type"><i class="fas fa-tasks"></i> Fecha límite</div>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-date">
+                            <div class="day">25</div>
+                            <div class="month">JUN</div>
+                        </div>
+                        <div class="activity-info">
+                            <div class="title">Sesión de mentoría grupal</div>
+                            <div class="type"><i class="fas fa-users"></i> Zoom meeting</div>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-date">
+                            <div class="day">30</div>
+                            <div class="month">JUN</div>
+                        </div>
+                        <div class="activity-info">
+                            <div class="title">Evaluación módulo HANA</div>
+                            <div class="type"><i class="fas fa-pencil-alt"></i> Examen online</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECOMENDADOS -->
+            <div class="section-block">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        <h2>Recomendados para ti</h2>
+                    </div>
+                    <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="recommended-grid">
+                    <div class="rec-card">
+                        <div class="rec-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="rec-info">
+                            <div class="title">SAP BW/4HANA</div>
+                            <div class="meta">15h · 4 módulos</div>
+                        </div>
+                        <a href="#" class="btn-small">Ver</a>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-icon"><i class="fas fa-lock"></i></div>
+                        <div class="rec-info">
+                            <div class="title">Seguridad y autorizaciones</div>
+                            <div class="meta">8h · 3 módulos</div>
+                        </div>
+                        <a href="#" class="btn-small">Ver</a>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="rec-info">
+                            <div class="title">SAP Cloud Platform</div>
+                            <div class="meta">20h · 6 módulos</div>
+                        </div>
+                        <a href="#" class="btn-small">Ver</a>
+                    </div>
+                    <div class="rec-card">
+                        <div class="rec-icon"><i class="fas fa-database"></i></div>
+                        <div class="rec-info">
+                            <div class="title">SAP HANA 2.0</div>
+                            <div class="meta">25h · 8 módulos</div>
+                        </div>
+                        <a href="#" class="btn-small">Ver</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTADÍSTICAS (REALZADAS) -->
+            <div class="stats-section">
+                <div class="stats-grid">
+                    <div class="chart-card">
+                        <div class="chart-title">
+                            <i class="fas fa-chart-line" style="color: var(--accent);"></i>
+                            <span>Horas de estudio esta semana</span>
+                        </div>
+                        <div class="chart-bars">
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 40px;"></div>
+                                <span class="bar-label">L</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 70px;"></div>
+                                <span class="bar-label">M</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 55px;"></div>
+                                <span class="bar-label">M</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 90px;"></div>
+                                <span class="bar-label">J</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 65px;"></div>
+                                <span class="bar-label">V</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 45px;"></div>
+                                <span class="bar-label">S</span>
+                            </div>
+                            <div class="bar-item">
+                                <div class="bar fill" style="height: 20px;"></div>
+                                <span class="bar-label">D</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div class="streak-icon"><i class="fas fa-fire"></i></div>
+                        <div class="streak-number">12</div>
+                        <div class="streak-label">días seguidos</div>
+                        <p style="margin-top: 20px; color: var(--text-muted); font-size: 1rem;">¡Mantén el ritmo!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-cube"></i>
+                    <span>BlackPears Consulting</span>
+                    <p>Expertos en SAP, socios estratégicos.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="../index.html#nosotros">Nosotros</a></li>
+                        <li><a href="../index.html#especialidades">Especialidades</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-envelope"></i> info@blackpearsve.com</p>
+                    <p><i class="fas fa-phone"></i> +58 123 4567890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BlackPears Consulting. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de partículas (sin cambios) -->
+    <script>
+        const canvas = document.getElementById('particlesCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouseX = 0, mouseY = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.color = `rgba(142, 68, 173, ${Math.random() * 0.4 + 0.4})`;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -0.5;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -0.5;
+                const dx = this.x - mouseX;
+                const dy = this.y - mouseY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < 100) {
+                    const angle = Math.atan2(dy, dx);
+                    const force = (100 - distance) / 1000;
+                    this.x += Math.cos(angle) * force * 10;
+                    this.y += Math.sin(angle) * force * 10;
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 120; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function drawLines() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(142, 68, 173, ${0.2 * (1 - distance / 120)})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawLines();
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            initParticles();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        resizeCanvas();
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+
+</html>

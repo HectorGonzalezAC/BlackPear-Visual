@@ -1,0 +1,896 @@
+<!-- seccion-estudiante/panel-estudiante.html -->
+<!-- seccion-estudiante/panel-estudiante.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackPears · Panel Estudiante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* ===== NUEVA ESTRUCTURA CREATIVA ===== */
+        .dashboard-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* HEADER SUPERIOR (SALUDO + ACCIONES) */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            background: rgba(30, 30, 42, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 1rem 2rem;
+            border-radius: 80px;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            box-shadow: 0 10px 30px -15px black;
+        }
+
+        .greeting {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #9f8cff, #7a64e0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #12121c;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(159, 140, 255, 0.5);
+        }
+
+        .greeting-text h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #f0f3fa;
+        }
+
+        .greeting-text p {
+            color: #bdc3d0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .icon-btn {
+            background: rgba(159, 140, 255, 0.1);
+            border: 1px solid rgba(159, 140, 255, 0.3);
+            color: #9f8cff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.2s;
+            cursor: default;
+        }
+
+        .icon-btn:hover {
+            background: rgba(159, 140, 255, 0.2);
+            border-color: #9f8cff;
+            transform: scale(1.05);
+        }
+
+        /* BUSCADOR DESTACADO */
+        .search-block {
+            margin-bottom: 4rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 60px;
+            padding: 2rem 2.5rem;
+            border: 1px solid rgba(159, 140, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        .search-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #1e1e2a;
+            border-radius: 80px;
+            padding: 0.3rem 0.3rem 0.3rem 2rem;
+            border: 1px solid #9f8cff40;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-row i {
+            color: #9f8cff;
+            font-size: 1.4rem;
+        }
+
+        .search-row input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 1.2rem 0;
+            color: #f0f3fa;
+            font-size: 1.1rem;
+            font-family: inherit;
+        }
+
+        .search-row input::placeholder {
+            color: #bdc3d0;
+            opacity: 0.7;
+        }
+
+        .search-row button {
+            background: #9f8cff;
+            border: none;
+            color: #12121c;
+            padding: 0.9rem 2.5rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .search-row button:hover {
+            background: #b9abff;
+            transform: scale(1.02);
+        }
+
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .chip {
+            background: rgba(159, 140, 255, 0.1);
+            border: 1px solid rgba(159, 140, 255, 0.3);
+            border-radius: 40px;
+            padding: 0.5rem 1.5rem;
+            color: #bdc3d0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s;
+        }
+
+        .chip i {
+            color: #9f8cff;
+        }
+
+        .chip:hover {
+            background: rgba(159, 140, 255, 0.2);
+            border-color: #9f8cff;
+            color: #f0f3fa;
+        }
+
+        /* MÉTRICAS VISUALES (TARJETAS CON BARRAS) */
+        .metrics-block {
+            margin-bottom: 4rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: #1e1e2a;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            border-radius: 30px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 20px 35px -15px black;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #9f8cff, #b9abff, #9f8cff);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px);
+            border-color: #9f8cff;
+        }
+
+        .metric-card:hover::before {
+            opacity: 1;
+        }
+
+        .metric-value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #9f8cff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #bdc3d0;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(#9f8cff 0deg 270deg, #2a2a36 270deg 360deg);
+            margin: 1rem auto 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #f0f3fa;
+        }
+
+        /* SECCIÓN PRINCIPAL (DOS COLUMNAS) */
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        /* MIS CURSOS (TARJETAS HORIZONTALES) */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #f0f3fa;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 6px solid #9f8cff;
+            padding-left: 1.2rem;
+        }
+
+        .courses-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .course-item {
+            background: #1e1e2a;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            border-radius: 30px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .course-item:hover {
+            border-color: #9f8cff;
+            transform: translateX(8px);
+        }
+
+        .course-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #7a64e0, #9f8cff);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+        }
+
+        .course-details {
+            flex: 2;
+        }
+
+        .course-details h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #f0f3fa;
+        }
+
+        .course-details p {
+            color: #bdc3d0;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .progress-bar {
+            width: 150px;
+            height: 8px;
+            background: #2a2a36;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #9f8cff, #b9abff);
+        }
+
+        .course-btn {
+            background: transparent;
+            border: 2px solid #9f8cff;
+            color: #9f8cff;
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .course-btn:hover {
+            background: #9f8cff;
+            color: #12121c;
+        }
+
+        /* COLUMNA DERECHA */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* PRÓXIMAS ACTIVIDADES (TIMELINE) */
+        .activities-card {
+            background: #1e1e2a;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            border-radius: 40px;
+            padding: 2rem;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px dashed rgba(159, 140, 255, 0.2);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-time {
+            min-width: 70px;
+            color: #9f8cff;
+            font-weight: 600;
+        }
+
+        .activity-desc p {
+            color: #f0f3fa;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+        }
+
+        .activity-desc span {
+            color: #bdc3d0;
+            font-size: 0.9rem;
+        }
+
+        /* RECOMENDACIONES */
+        .recommendations-card {
+            background: #1e1e2a;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            border-radius: 40px;
+            padding: 2rem;
+        }
+
+        .rec-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .rec-item {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            padding: 0.8rem;
+            border-radius: 20px;
+            transition: 0.2s;
+        }
+
+        .rec-item:hover {
+            background: rgba(159, 140, 255, 0.1);
+        }
+
+        .rec-thumb {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #7a64e0, #9f8cff);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .rec-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f0f3fa;
+        }
+
+        .rec-info p {
+            color: #bdc3d0;
+            font-size: 0.9rem;
+        }
+
+        /* SECCIÓN EXPLORAR NUEVOS CURSOS */
+        .explore-block {
+            margin-bottom: 3rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50px;
+            padding: 2.5rem;
+        }
+
+        .explore-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .explore-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f0f3fa;
+        }
+
+        .view-all {
+            color: #9f8cff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .explore-card {
+            background: #1e1e2a;
+            border: 1px solid rgba(159, 140, 255, 0.2);
+            border-radius: 30px;
+            padding: 1.5rem;
+            transition: 0.3s;
+        }
+
+        .explore-card:hover {
+            transform: scale(1.02);
+            border-color: #9f8cff;
+        }
+
+        .explore-icon {
+            font-size: 2.5rem;
+            color: #9f8cff;
+            margin-bottom: 1rem;
+        }
+
+        .explore-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #f0f3fa;
+        }
+
+        .explore-card p {
+            color: #bdc3d0;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .explore-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #9f8cff;
+            font-weight: 500;
+        }
+
+        /* SEPARADORES CREATIVOS */
+        .divider-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 3rem 0;
+        }
+
+        .divider-dots span {
+            width: 8px;
+            height: 8px;
+            background: #9f8cff;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .main-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .explore-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .search-row {
+                flex-wrap: wrap;
+                background: transparent;
+                padding: 0;
+                border: none;
+            }
+
+            .search-row input {
+                background: #1e1e2a;
+                border: 1px solid #9f8cff40;
+                border-radius: 60px;
+                padding: 1rem;
+                width: 100%;
+            }
+
+            .search-row button {
+                width: 100%;
+            }
+
+            .course-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .progress-info {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particles-canvas"></canvas>
+    <div class="content">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">BLACKPEARS</a>
+                <ul class="nav-menu">
+                    <li><a href="panel-estudiante.html" class="active">Inicio</a></li>
+                    <li><a href="#">Mis Cursos</a></li>
+                    <li><a href="#">Calendario</a></li>
+                    <li><a href="#">Perfil</a></li>
+                    <li><a href="../login.html" class="btn-outline">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="dashboard-main">
+            <!-- HEADER SUPERIOR -->
+            <div class="dashboard-header">
+                <div class="greeting">
+                    <div class="avatar">JD</div>
+                    <div class="greeting-text">
+                        <h2>¡Hola, Javier Díaz!</h2>
+                        <p><i class="fas fa-circle" style="font-size: 0.5rem; color: #9f8cff;"></i> Último acceso: hoy
+                            09:24</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="icon-btn"><i class="fas fa-bell"></i></div>
+                    <div class="icon-btn"><i class="fas fa-cog"></i></div>
+                </div>
+            </div>
+
+            <!-- BUSCADOR -->
+            <div class="search-block">
+                <div class="search-row">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="¿Qué quieres aprender hoy?">
+                    <button>Buscar</button>
+                </div>
+                <div class="filter-chips">
+                    <span class="chip"><i class="fas fa-database"></i> SAP HANA</span>
+                    <span class="chip"><i class="fas fa-code"></i> ABAP</span>
+                    <span class="chip"><i class="fas fa-coins"></i> FI/CO</span>
+                    <span class="chip"><i class="fas fa-chart-line"></i> BI/BW</span>
+                    <span class="chip"><i class="fas fa-shield-alt"></i> Seguridad</span>
+                    <span class="chip"><i class="fas fa-cloud"></i> Cloud</span>
+                </div>
+            </div>
+
+            <!-- MÉTRICAS VISUALES -->
+            <div class="metrics-block">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">6</div>
+                        <div class="metric-label">Cursos activos</div>
+                        <div class="progress-circle"
+                            style="background: conic-gradient(#9f8cff 0deg 270deg, #2a2a36 270deg 360deg);">75%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Completados</div>
+                        <i class="fas fa-check-circle" style="font-size: 3rem; color: #9f8cff; margin-top: 0.5rem;"></i>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Certificados</div>
+                        <i class="fas fa-certificate" style="font-size: 3rem; color: #9f8cff; margin-top: 0.5rem;"></i>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">187h</div>
+                        <div class="metric-label">Aprendidas</div>
+                        <i class="fas fa-clock" style="font-size: 3rem; color: #9f8cff; margin-top: 0.5rem;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIVISOR CREATIVO -->
+            <div class="divider-dots">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- SECCIÓN PRINCIPAL: CURSOS + ACTIVIDADES -->
+            <div class="main-dashboard">
+                <!-- COLUMNA IZQUIERDA: MIS CURSOS -->
+                <div class="left-col">
+                    <div class="section-title">
+                        <i class="fas fa-book-open"></i> Mis cursos
+                    </div>
+                    <div class="courses-list">
+                        <div class="course-item">
+                            <div class="course-icon"><i class="fas fa-database"></i></div>
+                            <div class="course-details">
+                                <h4>SAP HANA – Introducción</h4>
+                                <p>Laura Méndez · 12 lecciones</p>
+                                <div class="progress-info">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width:75%"></div>
+                                    </div>
+                                    <span style="color:#9f8cff;">75%</span>
+                                </div>
+                            </div>
+                            <a href="#" class="course-btn">Continuar</a>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-icon"><i class="fas fa-code"></i></div>
+                            <div class="course-details">
+                                <h4>ABAP avanzado</h4>
+                                <p>Carlos Ruiz · 20 lecciones</p>
+                                <div class="progress-info">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width:40%"></div>
+                                    </div>
+                                    <span style="color:#9f8cff;">40%</span>
+                                </div>
+                            </div>
+                            <a href="#" class="course-btn">Continuar</a>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="course-details">
+                                <h4>SAP FI/CO para finanzas</h4>
+                                <p>Ana Gómez · 15 lecciones</p>
+                                <div class="progress-info">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width:90%"></div>
+                                    </div>
+                                    <span style="color:#9f8cff;">90%</span>
+                                </div>
+                            </div>
+                            <a href="#" class="course-btn">Continuar</a>
+                        </div>
+                        <div class="course-item">
+                            <div class="course-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="course-details">
+                                <h4>Seguridad en SAP</h4>
+                                <p>Pedro Sánchez · 8 lecciones</p>
+                                <div class="progress-info">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width:15%"></div>
+                                    </div>
+                                    <span style="color:#9f8cff;">15%</span>
+                                </div>
+                            </div>
+                            <a href="#" class="course-btn">Continuar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: ACTIVIDADES Y RECOMENDACIONES -->
+                <div class="right-col">
+                    <div class="activities-card">
+                        <div class="section-title" style="font-size:1.5rem; margin-bottom:1.5rem;">
+                            <i class="fas fa-calendar-alt"></i> Próximas actividades
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-time">Mañana 11:00</div>
+                            <div class="activity-desc">
+                                <p>Webinar: Optimización FI/CO</p>
+                                <span>En vivo · Laura Méndez</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-time">Vie 23:59</div>
+                            <div class="activity-desc">
+                                <p>Entrega ejercicio ABAP</p>
+                                <span>Módulo 4 · ABAP avanzado</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-time">20 mar 10:00</div>
+                            <div class="activity-desc">
+                                <p>Sesión en vivo: HANA modeling</p>
+                                <span>Instructor: Carlos Ruiz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendations-card">
+                        <div class="section-title" style="font-size:1.5rem; margin-bottom:1.5rem;">
+                            <i class="fas fa-thumbs-up"></i> Recomendados
+                        </div>
+                        <div class="rec-grid">
+                            <div class="rec-item">
+                                <div class="rec-thumb"><i class="fas fa-cloud"></i></div>
+                                <div class="rec-info">
+                                    <h4>Integración SAP en la nube</h4>
+                                    <p>4.7 ★ (120)</p>
+                                </div>
+                            </div>
+                            <div class="rec-item">
+                                <div class="rec-thumb"><i class="fas fa-robot"></i></div>
+                                <div class="rec-info">
+                                    <h4>Automatización con ABAP</h4>
+                                    <p>4.9 ★ (85)</p>
+                                </div>
+                            </div>
+                            <div class="rec-item">
+                                <div class="rec-thumb"><i class="fas fa-chart-line"></i></div>
+                                <div class="rec-info">
+                                    <h4>Dashboards SAP Analytics</h4>
+                                    <p>4.8 ★ (210)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIVISOR CREATIVO -->
+            <div class="divider-dots">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <!-- SECCIÓN EXPLORAR NUEVOS CURSOS -->
+            <div class="explore-block">
+                <div class="explore-header">
+                    <h3><i class="fas fa-compass" style="color:#9f8cff;"></i> Explorar nuevos cursos</h3>
+                    <a href="#" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="explore-grid">
+                    <div class="explore-card">
+                        <div class="explore-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Machine Learning en SAP</h4>
+                        <p>Aprende a integrar modelos predictivos con SAP HANA.</p>
+                        <div class="explore-meta">
+                            <span>4.8 ★</span>
+                            <span>24h</span>
+                        </div>
+                    </div>
+                    <div class="explore-card">
+                        <div class="explore-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4>Desarrollo móvil SAP Fiori</h4>
+                        <p>Crea apps modernas con SAP Fiori y UX.</p>
+                        <div class="explore-meta">
+                            <span>4.9 ★</span>
+                            <span>30h</span>
+                        </div>
+                    </div>
+                    <div class="explore-card">
+                        <div class="explore-icon"><i class="fas fa-link"></i></div>
+                        <h4>Integración SAP con API</h4>
+                        <p>Conecta SAP con sistemas externos mediante APIs.</p>
+                        <div class="explore-meta">
+                            <span>4.7 ★</span>
+                            <span>18h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER SIMPLIFICADO -->
+        <footer class="footer" style="margin-top: 2rem;">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>BlackPears</h4>
+                    <ul>
+                        <li><a href="../index.html#inicio">Inicio</a></li>
+                        <li><a href="../index.html#plataforma">Plataforma</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Mi cuenta</h4>
+                    <ul>
+                        <li><a href="#">Perfil</a></li>
+                        <li><a href="#">Mis cursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Centro de ayuda</a></li>
+                        <li><a href="#">Contactar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a
+                                href="mailto:estudios@blackpears.com">estudios@blackpears.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 BlackPears Consulting · Plataforma de aprendizaje</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../particles.js"></script>
+</body>
+
+</html>
